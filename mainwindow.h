@@ -24,6 +24,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QtWebSockets/QWebSocket>
+#include <QKeyEvent>
 
 
 //********************************************************************************
@@ -53,7 +54,11 @@ public:
 
     explicit MainWindow(QWidget *parent = nullptr, QString *srv = nullptr);
     ~MainWindow();
-    void timerEvent(QTimerEvent *event);
+
+
+protected:
+    virtual void timerEvent(QTimerEvent *) override;
+    virtual void keyPressEvent(QKeyEvent *) override;
 
 public slots:
     void LogSave(const char *, const QByteArray &, bool, bool);

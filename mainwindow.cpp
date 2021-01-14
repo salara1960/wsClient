@@ -11,7 +11,8 @@
 //const QString vers = "0.1";//18.02.2020
 //const QString vers = "0.2";//18.02.2020
 //const QString vers = "0.3";//18.02.2020
-const QString vers = "0.4";//19.02.2020
+//const QString vers = "0.4";//19.02.2020
+const QString vers = "0.5";//14.01.2021
 
 
 const QString title = "webSocketClient";
@@ -198,7 +199,11 @@ void MainWindow::timerEvent(QTimerEvent *event)
     }
 }
 //-----------------------------------------------------------------------
-
+void MainWindow::keyPressEvent(QKeyEvent *evt)
+{
+    if (evt->key() == Qt::Key_Return) on_answer_clicked();
+}
+//-----------------------------------------------------------------------
 
 
 

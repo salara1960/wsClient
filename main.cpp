@@ -18,8 +18,6 @@
 
 int main(int argc, char *argv[])
 {
-int cerr = 0;
-QString errStr = "", cerrStr;
 QString ws_srv = "192.168.0.103:8899";
 
 
@@ -51,7 +49,8 @@ QString ws_srv = "192.168.0.103:8899";
     }
 
     catch (MainWindow::TheError(er)) {
-        cerr = er.code;
+        int cerr = er.code;
+        QString errStr = "", cerrStr;
         cerrStr.sprintf("%d", cerr);
         if (cerr > 0) {
             if (cerr & 1) errStr.append("Error starting timer_wait_data (" + cerrStr + ")\n");
